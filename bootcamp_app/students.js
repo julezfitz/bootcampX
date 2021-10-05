@@ -24,7 +24,7 @@ pool.query(`
   JOIN cohorts ON cohorts.id = cohort_id
   WHERE cohorts.name LIKE ('${myArgs[0]}%')
   LIMIT ${myArgs[1] || 5};
-  `)
+  `, myArgs)
   .then(res => {
     res.rows.forEach(user => {
       console.log(`${user.name} has an id of ${user.student_id} and was in the ${user.cohort} cohort`);
